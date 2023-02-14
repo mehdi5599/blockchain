@@ -25,14 +25,7 @@ class Blockchain:
         """
 
         parsed_url = urlparse(address)
-        if parsed_url.netloc:
-            self.nodes.add(parsed_url.netloc)
-        elif parsed_url.path:
-            # Accepts an URL without scheme like '192.168.0.5:5000'.
-            self.nodes.add(parsed_url.path)
-        else:
-            raise ValueError('Invalid URL')
-
+        self.nodes.add(parsed_url.netloc)
 
     def valid_chain(self, chain):
         """
